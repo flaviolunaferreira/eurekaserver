@@ -1,0 +1,11 @@
+# Usar a imagem oficial do OpenJDK como base
+FROM openjdk:17-jdk-alpine
+
+# Definir o diretório de trabalho dentro do container
+WORKDIR /app
+
+# Copiar o arquivo JAR da aplicação para o container
+COPY target/*.jar app.jar
+
+# Definir o comando de execução da aplicação
+ENTRYPOINT ["java", "-jar", "app.jar"]
